@@ -95,7 +95,7 @@ function load(){try{S=JSON.parse(localStorage.getItem(KEY))}catch(e){}
  if(!S)S={types:["A","B","C","D","E"],entries:[]};norm();S.del=S.del||[];if(!S.shash){S.shash=sh();S.sts=0}}
 function sh(){return JSON.stringify([S.types,S.rates,S.name,S.firm])}
 function persist(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
-function save(){var h=sh();if(h!==S.shash){S.shash=h;S.sts=Date.now()}persist();if(typeof user!=="undefined"&&user&&fb){clearTimeout(syncT);syncT=setTimeout(function(){push().catch(function(){setMsg(tr("offl"))})},1500)}}
+function save(){var h=sh();if(h!==S.shash){S.shash=h;S.sts=Date.now()}persist()}
 load();
 var $=function(i){return document.getElementById(i)};
 var pad=function(n){return String(n).padStart(2,"0")};
@@ -219,7 +219,7 @@ function vSettings(){
  var th=function(k){return '<button class="btn sm '+(S.theme==k?"":"off")+'" style="flex:1" onclick="setTh(\''+k+'\')">'+tr(k)+'</button>'};
  var fz=function(k){return '<button class="btn sm '+(S.fs==k?"":"off")+'" style="flex:1" onclick="setFs(\''+k+'\')">'+tr("fs"+k)+'</button>'};
  var lg=function(k,n){return '<button class="btn sm '+(S.lang==k?"":"off")+'" style="flex:1" onclick="setLg(\''+k+'\')">'+n+'</button>'};
- $("app").innerHTML=accCard()+'<div class="card"><b>'+tr("prof")+'</b><label style="margin-top:8px">'+tr("nm")+'</label><input value="'+esc(S.name)+'" oninput="S.name=this.value;save()"><label style="margin-top:8px">'+tr("firm")+'</label><input value="'+esc(S.firm)+'" oninput="S.firm=this.value;save()"></div>'
+ $("app").innerHTML='<div class="card"><b>'+tr("prof")+'</b><label style="margin-top:8px">'+tr("nm")+'</label><input value="'+esc(S.name)+'" oninput="S.name=this.value;save()"><label style="margin-top:8px">'+tr("firm")+'</label><input value="'+esc(S.firm)+'" oninput="S.firm=this.value;save()"></div>'
  +'<div class="card"><b>'+tr("lang")+'</b><div class="flex" style="margin-top:8px">'+lg("en","English")+lg("hi","हिन्दी")+lg("gu","ગુજરાતી")+'</div></div>'
  +'<div class="card"><b>'+tr("rset")+'</b><p class="mute">'+tr("rhint")+'</p>'
  +S.types.map(function(t,i){return '<div class="row" style="grid-template-columns:1.3fr 1fr"><b>'+esc(t)+'</b><input inputmode="decimal" placeholder="0.00" value="'+(S.rates[t]||"")+'" onchange="setR('+i+',this.value)"></div>'}).join("")+'</div>'
@@ -246,33 +246,7 @@ function renT(i,v){v=v.trim();var o=S.types[i];if(!v||v==o){vSettings();return}
  if(S.types.indexOf(v)>=0){toast(tr("exists"));vSettings();return}
  S.types[i]=v;if(S.rates[o]!==undefined){S.rates[v]=S.rates[o];delete S.rates[o]}
  S.entries.forEach(function(e){e.rows.forEach(function(r){if(r.type==o)r.type=v})});draft={};save();vSettings()}
-var FBCFG={apiKey:"AIzaSyBsBZPvh8gaFFH1S6CEHRRiWxq5P8L8KHw",authDomain:"diamond-karigar.firebaseapp.com",projectId:"diamond-karigar",storageBucket:"diamond-karigar.firebasestorage.app",messagingSenderId:"860022434973",appId:"1:860022434973:web:d7e89d1c3ec3301c5eb874"};
-var fb=null,user=null,syncT=null,authInit=false,syncMsg="";
-function flag(){try{return localStorage.getItem("hb_login")==="1"}catch(e){return false}}
-function setMsg(m){syncMsg=m;var e=$("sm");if(e)e.textContent=m}
-function fbLoad(){if(fb)return Promise.resolve(fb);var B="https://www.gstatic.com/firebasejs/10.14.1/";
- return Promise.all([import(B+"firebase-app.js"),import(B+"firebase-auth.js"),import(B+"firebase-firestore.js")]).then(function(m){var app=m[0].initializeApp(FBCFG);fb={A:m[1],F:m[2],auth:m[1].getAuth(app),db:m[2].getFirestore(app)};return fb})}
-function initAuth(){if(authInit)return;authInit=true;fb.A.onAuthStateChanged(fb.auth,function(u){user=u;if(u){try{localStorage.setItem("hb_login","1")}catch(e){}pull()}if(tab=="settings")vSettings()})}
-function login(){fbLoad().then(function(){initAuth();return fb.A.signInWithPopup(fb.auth,new fb.A.GoogleAuthProvider())}).then(function(){toast(tr("loginOk"))}).catch(function(e){toast(tr("loginErr")+" ("+(e.code||e.message)+")")})}
-function logout(){if(!fb)return;fb.A.signOut(fb.auth).then(function(){try{localStorage.removeItem("hb_login")}catch(e){}user=null;toast(tr("outOk"));if(tab=="settings")vSettings()})}
-function pdata(){return{types:S.types,rates:S.rates,name:S.name,firm:S.firm,sts:S.sts||0,entries:S.entries,upad:S.upad,del:S.del}}
-function mergeIn(c){
- var del={};(S.del||[]).concat(c.del||[]).forEach(function(i){del[i]=1});S.del=Object.keys(del).map(Number);
- ["entries","upad"].forEach(function(k){var m={};(c[k]||[]).concat(S[k]||[]).forEach(function(r){if(del[r.id])return;var o=m[r.id];if(!o||(r.ts||0)>=(o.ts||0))m[r.id]=r});S[k]=Object.keys(m).map(function(i){return m[i]})});
- if((c.sts||0)>(S.sts||0)){S.types=c.types||S.types;S.rates=c.rates||S.rates;S.name=c.name||"";S.firm=c.firm||"";S.sts=c.sts;S.shash=sh()}
- S.entries.forEach(function(e){if(e.hira===undefined)e.hira=e.rows.reduce(function(a,r){return a+r.c},0)})}
-function pull(){if(!user||!fb)return;if(!navigator.onLine){setMsg(tr("offl"));return}
- setMsg(tr("syncing"));var ref=fb.F.doc(fb.db,"users",user.uid);
- fb.F.getDoc(ref).then(function(s){
-  if(s.exists()){mergeIn(JSON.parse(s.data().data))}else if(!S.sts){S.sts=Date.now();S.shash=sh()}
-  persist();return push()}).then(function(){if(tab=="records"||tab=="summary"||tab=="upad")render()}).catch(function(e){setMsg(tr("offl")+" ("+(e.code||"")+")")})}
-function push(){if(!user||!fb)return Promise.resolve();return fb.F.setDoc(fb.F.doc(fb.db,"users",user.uid),{data:JSON.stringify(pdata()),updated:Date.now()}).then(function(){var d=new Date();setMsg(tr("synced")+" "+pad(d.getHours())+":"+pad(d.getMinutes()))})}
-function accCard(){var h='<div class="card"><b>'+tr("acc")+'</b>';
- if(user){h+='<p class="mute" style="margin:6px 0">'+esc(user.email||"")+'</p><p class="mute" id="sm" style="margin:0 0 10px">'+esc(syncMsg)+'</p><div class="flex"><button class="btn sm" onclick="pull()">'+tr("syncNow")+'</button><button class="btn sm ghost" onclick="logout()">'+tr("logout")+'</button></div>'}
- else{h+='<p class="mute">'+tr("accH")+'</p><button class="btn" onclick="login()">'+tr("login")+'</button>'}
- return h+'</div>'}
-addEventListener("online",function(){if(flag())fbLoad().then(function(){initAuth();pull()}).catch(function(){})});
-if(flag()&&navigator.onLine)fbLoad().then(initAuth).catch(function(){});
+try{localStorage.removeItem("hb_login")}catch(e){}
 render();
 </script>
 <script>if("serviceWorker" in navigator){addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}</script>

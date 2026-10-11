@@ -1,4 +1,4 @@
-var CACHE="diamond-karigar-v3";
+var CACHE="diamond-karigar-v4";
 var FILES=["./","index.html","manifest.json","icon-192.png","icon-512.png","icon-maskable-512.png"];
 self.addEventListener("install",function(e){
   e.waitUntil(caches.open(CACHE).then(function(c){
@@ -17,7 +17,7 @@ self.addEventListener("activate",function(e){
 self.addEventListener("fetch",function(e){
   if(e.request.method!=="GET")return;
   var u=new URL(e.request.url);
-  if(u.origin!==location.origin&&u.hostname!=="www.gstatic.com")return;
+  if(u.origin!==location.origin)return;
   e.respondWith(
     fetch(e.request).then(function(res){
       var cp=res.clone();
