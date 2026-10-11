@@ -9,68 +9,68 @@
 <link rel="apple-touch-icon" href="icon-192.png">
 <title>Diamond Karigar</title>
 <style>
-:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bad:#c0392b;--rad:18px;--sh:none}
+:root{--k:1.2;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bad:#c0392b;--rad:18px;--sh:none}
 [data-design="1"][data-mode="light"]{--bg:#f4f8ff;--card:#fff;--ink:#0f1f45;--mute:#62708f;--line:#dce6fb;--pri:#1747c9;--hd:linear-gradient(135deg,#0a2a8f 0%,#1c52e6 55%,#3a86ff 100%);--hdink:#fff;--acc:#5ac8ff;--ok:#1f8a4c;--btn:linear-gradient(135deg,#1747c9,#2f6bff);--btnink:#fff;--navbg:#fff;--ni:#7a88a6;--no:#1747c9;--tint:#e6eeff;--g1:#fff;--g2:#d6e6ff;--g3:#8ab4ff;--sh:0 4px 16px #1c52e61a}
 [data-design="1"][data-mode="dark"]{--bg:#091024;--card:#111b3a;--ink:#e8eeff;--mute:#93a3cc;--line:#22346b;--pri:#7aa7ff;--hd:linear-gradient(135deg,#071a5c,#123aa8 60%,#2563eb);--hdink:#fff;--acc:#5ac8ff;--ok:#4cc882;--btn:linear-gradient(135deg,#2f6bff,#4d8aff);--btnink:#fff;--navbg:#111b3a;--ni:#8fa0c8;--no:#7aa7ff;--tint:#1d2d63;--g1:#fff;--g2:#d6e6ff;--g3:#8ab4ff;}
 *{box-sizing:border-box}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Devanagari","Noto Sans Gujarati",sans-serif;padding-bottom:100px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Devanagari","Noto Sans Gujarati",sans-serif;font-size:calc(16px*var(--k));line-height:1.4;padding-bottom:100px}
 header{position:relative;background:var(--hd);color:var(--hdink);padding:16px 14px 40px;display:flex;align-items:center;gap:10px;overflow:hidden}
 header::before{content:"";position:absolute;right:-30px;top:-50px;width:190px;height:190px;border-radius:50%;background:radial-gradient(#ffffff40,transparent 65%)}
 header>*:not(.wave){position:relative;z-index:1}
 header .gem{width:46px;height:42px;flex:none}
 .gem .a{fill:var(--g1)}.gem .b{fill:var(--g2)}.gem .c{fill:var(--g3)}
 header .tt{flex:1;min-width:0}
-header .tt b{display:block;font-size:22px;line-height:1.15}
-#ttl{display:block;font-size:16px;font-weight:600;opacity:.95}
+header .tt b{display:block;font-size:calc(22px*var(--k));line-height:1.15}
+#ttl{display:block;font-size:calc(16px*var(--k));font-weight:600;opacity:.95}
 #ttl::after{content:"";display:block;width:54px;height:2px;border-radius:2px;background:currentColor;opacity:.55;margin-top:4px}
 header .ib{width:40px;height:40px;border-radius:50%;border:2px solid currentColor;background:#ffffff1f;color:inherit;display:flex;align-items:center;justify-content:center;flex:none;padding:0}
 header .ib svg{width:20px;height:20px}
 .wave{position:absolute;left:0;bottom:-1px;width:100%;height:30px}.wave path{fill:var(--bg)}
-.li{display:flex;gap:12px;align-items:center;padding:13px 4px;border-bottom:1px solid var(--line);font-size:16px}
+.li{display:flex;gap:12px;align-items:center;padding:13px 4px;border-bottom:1px solid var(--line);font-size:calc(16px*var(--k))}
 main{padding:14px;max-width:560px;margin:auto}
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--rad);box-shadow:var(--sh);padding:12px;margin-bottom:12px}
-label{font-size:13px;color:var(--mute);display:block;margin-bottom:4px}
+label{font-size:calc(13px*var(--k));color:var(--mute);display:block;margin-bottom:4px}
 input,textarea{width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit}
-.row{display:grid;grid-template-columns:minmax(80px,1.3fr) 1fr 1fr 78px;gap:6px;align-items:center;margin-bottom:8px}
-.row b{font-size:14px;overflow-wrap:anywhere}
-.row .t{text-align:right;font-size:14px;font-variant-numeric:tabular-nums}
-.head{font-size:12px;color:var(--mute)}
-.btn{width:100%;padding:13px;border:0;border-radius:14px;background:var(--btn);color:var(--btnink);font-size:17px;font-weight:700}
-.btn.sm{width:auto;padding:8px 12px;font-size:14px}
+.row{display:grid;grid-template-columns:minmax(80px,1.3fr) 1fr 1fr calc(78px*var(--k));gap:6px;align-items:center;margin-bottom:8px}
+.row b{font-size:calc(14px*var(--k));overflow-wrap:anywhere}
+.row .t{text-align:right;font-size:calc(14px*var(--k));font-variant-numeric:tabular-nums}
+.head{font-size:calc(12px*var(--k));color:var(--mute)}
+.btn{width:100%;padding:13px;border:0;border-radius:14px;background:var(--btn);color:var(--btnink);font-size:calc(17px*var(--k));font-weight:700}
+.btn.sm{width:auto;padding:8px 12px;font-size:calc(14px*var(--k))}
 .btn.ghost{background:transparent;color:var(--bad);border:1px solid var(--bad)}
 .btn.ed{background:transparent;color:var(--pri);border:1px solid var(--pri)}
 .btn.off{background:var(--bg);color:var(--ink);border:1px solid var(--line)}
 .two{background:var(--card);border:1px solid var(--line);border-radius:var(--rad);padding:12px;margin:4px 0 12px}
 .two .hd,.two .vl{display:flex;justify-content:space-between}
-.two .hd{font-size:13px;color:var(--mute);font-weight:700}
-.two .vl{font-size:22px;font-weight:700}
+.two .hd{font-size:calc(13px*var(--k));color:var(--mute);font-weight:700}
+.two .vl{font-size:calc(22px*var(--k));font-weight:700}
 .tots{background:var(--card);border:1px solid var(--line);border-radius:var(--rad);padding:12px;margin:0 0 12px}
-.tots div{display:flex;justify-content:space-between;font-size:18px;font-weight:700}
+.tots div{display:flex;justify-content:space-between;font-size:calc(18px*var(--k));font-weight:700}
 .tots div+div{margin-top:4px}
 .tots .g{color:var(--ok)}.tots .r{color:var(--bad)}
 nav{position:fixed;bottom:0;left:0;right:0;display:flex;background:var(--navbg);border-radius:24px 24px 0 0;box-shadow:0 -4px 18px #1b2a6a1f;padding:4px 6px calc(4px + env(safe-area-inset-bottom,0px))}
-nav button{flex:1;padding:6px 1px 7px;border:0;background:none;color:var(--ni);font:inherit;font-size:11px;border-radius:16px}
-nav button i{display:block;font-style:normal;font-size:19px;line-height:1.3}
+nav button{flex:1;padding:6px 1px 7px;border:0;background:none;color:var(--ni);font:inherit;font-size:calc(11px*(.5 + var(--k)/2));border-radius:16px}
+nav button i{display:block;font-style:normal;font-size:calc(19px*var(--k));line-height:1.3}
 nav button.on{color:var(--no);font-weight:700;background:var(--tint)}
 .bar{height:8px;background:var(--line);border-radius:6px;overflow:hidden;margin:4px 0 10px}
 .bar i{display:block;height:100%;background:var(--pri)}
 .flex{display:flex;justify-content:space-between;gap:8px;align-items:center}
-.mute{color:var(--mute);font-size:13px}
+.mute{color:var(--mute);font-size:calc(13px*var(--k))}
 .mo{display:flex;align-items:center;justify-content:space-between;font-weight:700;gap:4px}
-.mo button{border:0;background:var(--btn);color:var(--btnink);font-size:22px;width:36px;height:36px;border-radius:50%;padding:0;line-height:1;flex:none}
-.who{font-size:18px;font-weight:700;text-align:center;margin:0 0 10px}
-.who small{display:block;font-size:14px;font-weight:400;color:var(--mute)}
+.mo button{border:0;background:var(--btn);color:var(--btnink);font-size:calc(22px*var(--k));width:36px;height:36px;border-radius:50%;padding:0;line-height:1;flex:none}
+.who{font-size:calc(18px*var(--k));font-weight:700;text-align:center;margin:0 0 10px}
+.who small{display:block;font-size:calc(14px*var(--k));font-weight:400;color:var(--mute)}
 .po{display:none}
-.seg{display:flex;gap:6px;margin-bottom:12px}.seg .btn{padding:9px;font-size:15px}
+.seg{display:flex;gap:6px;margin-bottom:12px}.seg .btn{padding:9px;font-size:calc(15px*var(--k))}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
 .stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}
-.stat b{display:block;font-size:20px}.stat span{font-size:12px;color:var(--mute)}
+.stat b{display:block;font-size:calc(20px*var(--k))}.stat span{font-size:calc(12px*var(--k));color:var(--mute)}
 .chart{display:flex;align-items:flex-end;gap:4px;height:190px;padding-top:6px}
-.col{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;font-size:10px;color:var(--mute)}
+.col{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;font-size:calc(10px*var(--k));color:var(--mute)}
 .col i{display:block;width:100%;background:var(--pri);border-radius:4px 4px 0 0;min-height:2px}
 .col.cur i{background:var(--acc)}
-.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:20px;font-size:14px;z-index:30}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:20px;font-size:calc(14px*var(--k));z-index:30}
 @media print{header,nav,.noprint{display:none!important}.po{display:block}body{background:#fff;color:#000;padding:0}.card,.tots,.two,.stat{border-color:#999}}
 </style>
 </head>
@@ -80,14 +80,14 @@ nav button.on{color:var(--no);font-weight:700;background:var(--tint)}
 <nav id="nav"></nav>
 <script>
 var L={
-en:{srch:"Search date, type or amount",shA:"Share App",upA:"Update App",raA:"Rate App",shMsg:"Keep your diamond records with Diamond Karigar",copied:"Link copied",soon:"Works after the app is on Play Store",n1:"Add Diamond",n2:"Records",n3:"Upad",n4:"Summary",n5:"Settings",date:"Date",type:"Type",dia:"Diamond",rate:"Rate",tot:"Total",rup:"Rupees",tR:"Total ₹",save:"Save",upd:"Update",cancel:"Cancel",edit:"Edit",del:"Delete",norec:"No records this month.",newU:"New upad (advance)",editU:"Edit upad",amt:"Amount ₹",note:"Note (optional)",nou:"No upad this month.",tU:"Upad",mon:"Month",yr:"Year (12 months)",dw:"Days worked",lv:"Leave days",dm:"Diamonds made",ke:"Total earning",avg:"Daily average",bt:"By type",nod:"No data this month.",pdf:"Download PDF / Print",bal:"Balance ₹",lang:"Language",prof:"Your details",nm:"Name",firm:"Karkhana / Office name",rset:"Set rates",rhint:"Set the rate once, it fills in automatically.",th:"Theme",auto:"Auto",light:"Light",dark:"Dark",rem:"Reminder",remh:"Reminds you daily to add diamonds.",on:"ON",off:"OFF",time:"Time",demo:"In this demo it works only while the app is open. In the real APK it works in background too.",types:"Diamond types",thint:"Rename, add or delete types.",add:"Add",newT:"New type",cdE:"Delete this entry?",cdU:"Delete this upad?",cdT:"Delete this type? Old records stay safe.",yes:"Yes",no:"No",ok1:"Saved",ok2:"Updated",need:"Fill at least one type",amtN:"Enter amount",tset:"Time set",rtoast:"Rate set",yrT:"Year",pdfErr:"Print did not open. Use browser menu > Print",remNow:"Time to add today's diamonds",exists:"Already exists",editing:"Editing entry.",avgT:"Daily average"},
-hi:{srch:"तारीख, प्रकार या रकम खोजो",shA:"ऐप शेयर करो",upA:"ऐप अपडेट",raA:"ऐप को रेट करो",shMsg:"डायमंड कारीगर से अपना हीरे का हिसाब रखो",copied:"लिंक कॉपी हो गई",soon:"ऐप Play Store पर आने के बाद चलेगा",n1:"हीरा लिखो",n2:"रिकॉर्ड",n3:"उपाड़",n4:"सारांश",n5:"सेटिंग्स",date:"तारीख",type:"प्रकार",dia:"हीरा",rate:"भाव",tot:"टोटल",rup:"रुपये",tR:"कुल ₹",save:"सेव",upd:"अपडेट",cancel:"रद्द",edit:"एडिट",del:"डिलीट",norec:"इस महीने कोई रिकॉर्ड नहीं।",newU:"नया उपाड़ (एडवांस)",editU:"उपाड़ एडिट करो",amt:"रकम ₹",note:"नोट (चाहो तो)",nou:"इस महीने कोई उपाड़ नहीं।",tU:"उपाड़",mon:"महीना",yr:"साल (12 महीने)",dw:"काम के दिन",lv:"छुट्टी",dm:"हीरा बनाए",ke:"कुल कमाई",avg:"रोज़ का औसत",bt:"प्रकार के हिसाब से",nod:"इस महीने का डेटा नहीं है।",pdf:"PDF डाउनलोड / प्रिंट",bal:"बाकी ₹",lang:"भाषा",prof:"आपकी जानकारी",nm:"नाम",firm:"कारखाना / ऑफिस का नाम",rset:"भाव सेट करो",rhint:"एक बार भाव लिखो, अपने आप आ जाएगा।",th:"थीम",auto:"ऑटो",light:"लाइट",dark:"डार्क",rem:"रिमाइंडर",remh:"रोज़ हीरा लिखना याद दिलाएगा।",on:"ON",off:"OFF",time:"समय",demo:"डेमो में यह तभी चलेगा जब ऐप खुली हो। असली APK में बंद होने पर भी चलेगा।",types:"हीरे के प्रकार",thint:"प्रकार का नाम बदलो, जोड़ो या हटाओ।",add:"जोड़ो",newT:"नया प्रकार",cdE:"यह एंट्री डिलीट करनी है?",cdU:"यह उपाड़ डिलीट करना है?",cdT:"यह प्रकार हटाना है? पुराने रिकॉर्ड सुरक्षित रहेंगे।",yes:"हाँ",no:"नहीं",ok1:"सेव हो गया",ok2:"अपडेट हो गया",need:"कम से कम एक प्रकार भरो",amtN:"रकम लिखो",tset:"समय सेट हो गया",rtoast:"भाव सेट हो गया",yrT:"साल",pdfErr:"प्रिंट नहीं खुला। ब्राउज़र मेन्यू से Print चुनो।",remNow:"आज का हीरा लिखने का समय हो गया",exists:"यह पहले से है",editing:"एंट्री एडिट हो रही है।"},
-gu:{srch:"તારીખ, પ્રકાર કે રકમ શોધો",shA:"એપ શેર કરો",upA:"એપ અપડેટ",raA:"એપને રેટ કરો",shMsg:"ડાયમંડ કારીગરથી તમારો હીરાનો હિસાબ રાખો",copied:"લિંક કોપી થઈ ગઈ",soon:"એપ Play Store પર આવ્યા પછી ચાલશે",n1:"હીરા લખો",n2:"રેકોર્ડ",n3:"ઉપાડ",n4:"સારાંશ",n5:"સેટિંગ્સ",date:"તારીખ",type:"પ્રકાર",dia:"હીરા",rate:"ભાવ",tot:"ટોટલ",rup:"રૂપિયા",tR:"કુલ ₹",save:"સેવ",upd:"અપડેટ",cancel:"રદ",edit:"એડિટ",del:"ડિલીટ",norec:"આ મહિને કોઈ રેકોર્ડ નથી.",newU:"નવો ઉપાડ (એડવાન્સ)",editU:"ઉપાડ એડિટ કરો",amt:"રકમ ₹",note:"નોંધ (વૈકલ્પિક)",nou:"આ મહિને કોઈ ઉપાડ નથી.",tU:"ઉપાડ",mon:"મહિનો",yr:"વર્ષ (12 મહિના)",dw:"કામના દિવસ",lv:"રજા",dm:"હીરા બનાવ્યા",ke:"કુલ કમાણી",avg:"રોજની સરેરાશ",bt:"પ્રકાર પ્રમાણે",nod:"આ મહિનાનો ડેટા નથી.",pdf:"PDF ડાઉનલોડ / પ્રિન્ટ",bal:"બાકી ₹",lang:"ભાષા",prof:"તમારી માહિતી",nm:"નામ",firm:"કારખાના / ઓફિસનું નામ",rset:"ભાવ સેટ કરો",rhint:"એક વાર ભાવ લખો, આપોઆપ આવી જશે.",th:"થીમ",auto:"ઓટો",light:"લાઇટ",dark:"ડાર્ક",rem:"રિમાઇન્ડર",remh:"રોજ હીરા લખવાનું યાદ અપાવશે.",on:"ON",off:"OFF",time:"સમય",demo:"ડેમોમાં આ ત્યારે જ ચાલશે જ્યારે એપ ખુલ્લી હોય. અસલી APKમાં બંધ હોય ત્યારે પણ ચાલશે.",types:"હીરાના પ્રકાર",thint:"પ્રકારનું નામ બદલો, ઉમેરો કે કાઢો.",add:"ઉમેરો",newT:"નવો પ્રકાર",cdE:"આ એન્ટ્રી ડિલીટ કરવી છે?",cdU:"આ ઉપાડ ડિલીટ કરવો છે?",cdT:"આ પ્રકાર કાઢવો છે? જૂના રેકોર્ડ સલામત રહેશે.",yes:"હા",no:"ના",ok1:"સેવ થઈ ગયું",ok2:"અપડેટ થઈ ગયું",need:"ઓછામાં ઓછો એક પ્રકાર ભરો",amtN:"રકમ લખો",tset:"સમય સેટ થઈ ગયો",rtoast:"ભાવ સેટ થઈ ગયો",yrT:"વર્ષ",pdfErr:"પ્રિન્ટ ખુલ્યું નહીં. બ્રાઉઝર મેનુમાંથી Print પસંદ કરો.",remNow:"આજના હીરા લખવાનો સમય થઈ ગયો",exists:"આ પહેલેથી છે",editing:"એન્ટ્રી એડિટ થઈ રહી છે."}};
+en:{fs:"Text size",fs1:"Small",fs2:"Medium",fs3:"Large",srch:"Search date, type or amount",shA:"Share App",upA:"Update App",raA:"Rate App",shMsg:"Keep your diamond records with Diamond Karigar",copied:"Link copied",soon:"Works after the app is on Play Store",n1:"Add Diamond",n2:"Records",n3:"Upad",n4:"Summary",n5:"Settings",date:"Date",type:"Type",dia:"Diamond",rate:"Rate",tot:"Total",rup:"Rupees",tR:"Total ₹",save:"Save",upd:"Update",cancel:"Cancel",edit:"Edit",del:"Delete",norec:"No records this month.",newU:"New upad (advance)",editU:"Edit upad",amt:"Amount ₹",note:"Note (optional)",nou:"No upad this month.",tU:"Upad",mon:"Month",yr:"Year (12 months)",dw:"Days worked",lv:"Leave days",dm:"Diamonds made",ke:"Total earning",avg:"Daily average",bt:"By type",nod:"No data this month.",pdf:"Download PDF / Print",bal:"Balance ₹",lang:"Language",prof:"Your details",nm:"Name",firm:"Karkhana / Office name",rset:"Set rates",rhint:"Set the rate once, it fills in automatically.",th:"Theme",auto:"Auto",light:"Light",dark:"Dark",rem:"Reminder",remh:"Reminds you daily to add diamonds.",on:"ON",off:"OFF",time:"Time",demo:"In this demo it works only while the app is open. In the real APK it works in background too.",types:"Diamond types",thint:"Rename, add or delete types.",add:"Add",newT:"New type",cdE:"Delete this entry?",cdU:"Delete this upad?",cdT:"Delete this type? Old records stay safe.",yes:"Yes",no:"No",ok1:"Saved",ok2:"Updated",need:"Fill at least one type",amtN:"Enter amount",tset:"Time set",rtoast:"Rate set",yrT:"Year",pdfErr:"Print did not open. Use browser menu > Print",remNow:"Time to add today's diamonds",exists:"Already exists",editing:"Editing entry.",avgT:"Daily average"},
+hi:{fs:"अक्षर का आकार",fs1:"छोटा",fs2:"मध्यम",fs3:"बड़ा",srch:"तारीख, प्रकार या रकम खोजो",shA:"ऐप शेयर करो",upA:"ऐप अपडेट",raA:"ऐप को रेट करो",shMsg:"डायमंड कारीगर से अपना हीरे का हिसाब रखो",copied:"लिंक कॉपी हो गई",soon:"ऐप Play Store पर आने के बाद चलेगा",n1:"हीरा लिखो",n2:"रिकॉर्ड",n3:"उपाड़",n4:"सारांश",n5:"सेटिंग्स",date:"तारीख",type:"प्रकार",dia:"हीरा",rate:"भाव",tot:"टोटल",rup:"रुपये",tR:"कुल ₹",save:"सेव",upd:"अपडेट",cancel:"रद्द",edit:"एडिट",del:"डिलीट",norec:"इस महीने कोई रिकॉर्ड नहीं।",newU:"नया उपाड़ (एडवांस)",editU:"उपाड़ एडिट करो",amt:"रकम ₹",note:"नोट (चाहो तो)",nou:"इस महीने कोई उपाड़ नहीं।",tU:"उपाड़",mon:"महीना",yr:"साल (12 महीने)",dw:"काम के दिन",lv:"छुट्टी",dm:"हीरा बनाए",ke:"कुल कमाई",avg:"रोज़ का औसत",bt:"प्रकार के हिसाब से",nod:"इस महीने का डेटा नहीं है।",pdf:"PDF डाउनलोड / प्रिंट",bal:"बाकी ₹",lang:"भाषा",prof:"आपकी जानकारी",nm:"नाम",firm:"कारखाना / ऑफिस का नाम",rset:"भाव सेट करो",rhint:"एक बार भाव लिखो, अपने आप आ जाएगा।",th:"थीम",auto:"ऑटो",light:"लाइट",dark:"डार्क",rem:"रिमाइंडर",remh:"रोज़ हीरा लिखना याद दिलाएगा।",on:"ON",off:"OFF",time:"समय",demo:"डेमो में यह तभी चलेगा जब ऐप खुली हो। असली APK में बंद होने पर भी चलेगा।",types:"हीरे के प्रकार",thint:"प्रकार का नाम बदलो, जोड़ो या हटाओ।",add:"जोड़ो",newT:"नया प्रकार",cdE:"यह एंट्री डिलीट करनी है?",cdU:"यह उपाड़ डिलीट करना है?",cdT:"यह प्रकार हटाना है? पुराने रिकॉर्ड सुरक्षित रहेंगे।",yes:"हाँ",no:"नहीं",ok1:"सेव हो गया",ok2:"अपडेट हो गया",need:"कम से कम एक प्रकार भरो",amtN:"रकम लिखो",tset:"समय सेट हो गया",rtoast:"भाव सेट हो गया",yrT:"साल",pdfErr:"प्रिंट नहीं खुला। ब्राउज़र मेन्यू से Print चुनो।",remNow:"आज का हीरा लिखने का समय हो गया",exists:"यह पहले से है",editing:"एंट्री एडिट हो रही है।"},
+gu:{fs:"અક્ષરનું કદ",fs1:"નાનું",fs2:"મધ્યમ",fs3:"મોટું",srch:"તારીખ, પ્રકાર કે રકમ શોધો",shA:"એપ શેર કરો",upA:"એપ અપડેટ",raA:"એપને રેટ કરો",shMsg:"ડાયમંડ કારીગરથી તમારો હીરાનો હિસાબ રાખો",copied:"લિંક કોપી થઈ ગઈ",soon:"એપ Play Store પર આવ્યા પછી ચાલશે",n1:"હીરા લખો",n2:"રેકોર્ડ",n3:"ઉપાડ",n4:"સારાંશ",n5:"સેટિંગ્સ",date:"તારીખ",type:"પ્રકાર",dia:"હીરા",rate:"ભાવ",tot:"ટોટલ",rup:"રૂપિયા",tR:"કુલ ₹",save:"સેવ",upd:"અપડેટ",cancel:"રદ",edit:"એડિટ",del:"ડિલીટ",norec:"આ મહિને કોઈ રેકોર્ડ નથી.",newU:"નવો ઉપાડ (એડવાન્સ)",editU:"ઉપાડ એડિટ કરો",amt:"રકમ ₹",note:"નોંધ (વૈકલ્પિક)",nou:"આ મહિને કોઈ ઉપાડ નથી.",tU:"ઉપાડ",mon:"મહિનો",yr:"વર્ષ (12 મહિના)",dw:"કામના દિવસ",lv:"રજા",dm:"હીરા બનાવ્યા",ke:"કુલ કમાણી",avg:"રોજની સરેરાશ",bt:"પ્રકાર પ્રમાણે",nod:"આ મહિનાનો ડેટા નથી.",pdf:"PDF ડાઉનલોડ / પ્રિન્ટ",bal:"બાકી ₹",lang:"ભાષા",prof:"તમારી માહિતી",nm:"નામ",firm:"કારખાના / ઓફિસનું નામ",rset:"ભાવ સેટ કરો",rhint:"એક વાર ભાવ લખો, આપોઆપ આવી જશે.",th:"થીમ",auto:"ઓટો",light:"લાઇટ",dark:"ડાર્ક",rem:"રિમાઇન્ડર",remh:"રોજ હીરા લખવાનું યાદ અપાવશે.",on:"ON",off:"OFF",time:"સમય",demo:"ડેમોમાં આ ત્યારે જ ચાલશે જ્યારે એપ ખુલ્લી હોય. અસલી APKમાં બંધ હોય ત્યારે પણ ચાલશે.",types:"હીરાના પ્રકાર",thint:"પ્રકારનું નામ બદલો, ઉમેરો કે કાઢો.",add:"ઉમેરો",newT:"નવો પ્રકાર",cdE:"આ એન્ટ્રી ડિલીટ કરવી છે?",cdU:"આ ઉપાડ ડિલીટ કરવો છે?",cdT:"આ પ્રકાર કાઢવો છે? જૂના રેકોર્ડ સલામત રહેશે.",yes:"હા",no:"ના",ok1:"સેવ થઈ ગયું",ok2:"અપડેટ થઈ ગયું",need:"ઓછામાં ઓછો એક પ્રકાર ભરો",amtN:"રકમ લખો",tset:"સમય સેટ થઈ ગયો",rtoast:"ભાવ સેટ થઈ ગયો",yrT:"વર્ષ",pdfErr:"પ્રિન્ટ ખુલ્યું નહીં. બ્રાઉઝર મેનુમાંથી Print પસંદ કરો.",remNow:"આજના હીરા લખવાનો સમય થઈ ગયો",exists:"આ પહેલેથી છે",editing:"એન્ટ્રી એડિટ થઈ રહી છે."}};
 var MNS={en:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],hi:["जनवरी","फरवरी","मार्च","अप्रैल","मई","जून","जुलाई","अगस्त","सितंबर","अक्टूबर","नवंबर","दिसंबर"],gu:["જાન્યુઆરી","ફેબ્રુઆરી","માર્ચ","એપ્રિલ","મે","જૂન","જુલાઈ","ઓગસ્ટ","સપ્ટેમ્બર","ઓક્ટોબર","નવેમ્બર","ડિસેમ્બર"]};
 var KEY="hirabook_v1",S,tab="entry",draft={},ud={},sv="m",yk="r",cb,fired="",q="";
 function tr(k){return (L[S.lang]&&L[S.lang][k])||L.en[k]||k}
 function MN(){return MNS[S.lang]||MNS.en}
-function norm(){S.rates=S.rates||{};S.name=S.name||"";S.firm=S.firm||"";S.types=S.types||[];S.entries=S.entries||[];S.upad=S.upad||[];S.lang=S.lang||"hi";S.design=S.design||"1";
+function norm(){S.rates=S.rates||{};S.name=S.name||"";S.firm=S.firm||"";S.types=S.types||[];S.entries=S.entries||[];S.upad=S.upad||[];S.lang=S.lang||"hi";S.design=S.design||"1";S.fs=S.fs||"2";
  S.theme=S.theme||"auto";S.remind=S.remind||{on:false,time:"20:00"};
  if(S.types.join("|")=="A|B|C|D|E|F|G"&&!S.entries.some(function(e){return e.rows.some(function(r){return r.type=="F"||r.type=="G"})})){S.types=S.types.slice(0,5);delete S.rates.F;delete S.rates.G}
  S.entries.forEach(function(e){if(e.hira===undefined)e.hira=e.rows.reduce(function(a,r){return a+r.c},0)})}
@@ -108,7 +108,7 @@ var dmy=function(d){return d.split("-").reverse().join("/")};
 function toast(m){var t=document.createElement("div");t.className="toast";t.textContent=m;document.body.appendChild(t);setTimeout(function(){t.remove()},2200)}
 function ask(m,f){cb=f;var o=document.createElement("div");o.id="ov";o.style.cssText="position:fixed;inset:0;background:#0008;z-index:20;display:flex;align-items:center;justify-content:center;padding:20px";
  o.innerHTML='<div class="card" style="max-width:320px;width:100%;margin:0"><p style="margin-top:0">'+esc(m)+'</p><div class="flex"><button class="btn off" onclick="$(\'ov\').remove()">'+tr("no")+'</button><button class="btn" onclick="$(\'ov\').remove();cb()">'+tr("yes")+'</button></div></div>';document.body.appendChild(o)}
-function theme(){var r=document.documentElement,m=S.theme=="auto"?(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"):S.theme;r.setAttribute("data-mode",m);r.setAttribute("data-design","1")}
+function theme(){var r=document.documentElement,m=S.theme=="auto"?(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"):S.theme;r.setAttribute("data-mode",m);r.setAttribute("data-design","1");r.style.setProperty("--k",{"1":1,"2":1.2,"3":1.4}[S.fs]||1.2)}
 theme();try{matchMedia("(prefers-color-scheme:dark)").addEventListener("change",theme)}catch(e){}
 var TABS=["entry","records","upad","summary","settings"];
 var IC=["💎","📒","💸","📊","⚙️"];
@@ -215,6 +215,7 @@ function pdf(){try{window.print()}catch(e){toast(tr("pdfErr"))}}
 /* SETTINGS */
 function vSettings(){
  var th=function(k){return '<button class="btn sm '+(S.theme==k?"":"off")+'" style="flex:1" onclick="setTh(\''+k+'\')">'+tr(k)+'</button>'};
+ var fz=function(k){return '<button class="btn sm '+(S.fs==k?"":"off")+'" style="flex:1" onclick="setFs(\''+k+'\')">'+tr("fs"+k)+'</button>'};
  var lg=function(k,n){return '<button class="btn sm '+(S.lang==k?"":"off")+'" style="flex:1" onclick="setLg(\''+k+'\')">'+n+'</button>'};
  $("app").innerHTML='<div class="card"><b>'+tr("prof")+'</b><label style="margin-top:8px">'+tr("nm")+'</label><input value="'+esc(S.name)+'" oninput="S.name=this.value;save()"><label style="margin-top:8px">'+tr("firm")+'</label><input value="'+esc(S.firm)+'" oninput="S.firm=this.value;save()"></div>'
  +'<div class="card"><b>'+tr("lang")+'</b><div class="flex" style="margin-top:8px">'+lg("en","English")+lg("hi","हिन्दी")+lg("gu","ગુજરાતી")+'</div></div>'
@@ -224,6 +225,7 @@ function vSettings(){
  +S.types.map(function(x,i){return '<div class="flex" style="margin-bottom:8px"><input value="'+esc(x)+'" onchange="renT('+i+',this.value)"><button class="btn sm ghost" onclick="rmT('+i+')">&#10005;</button></div>'}).join("")
  +'<div class="flex"><input id="nt" placeholder="'+tr("newT")+'"><button class="btn sm" onclick="addT()">'+tr("add")+'</button></div></div>'
  +'<div class="card"><b>'+tr("th")+'</b><div class="flex" style="margin-top:8px">'+th("auto")+th("light")+th("dark")+'</div></div>'
+ +'<div class="card"><b>'+tr("fs")+'</b><div class="flex" style="margin-top:8px">'+fz("1")+fz("2")+fz("3")+'</div></div>'
  +'<div class="card"><b>'+tr("rem")+'</b><p class="mute">'+tr("remh")+'</p><div class="flex"><span></span><button class="btn sm '+(S.remind.on?"":"off")+'" onclick="togR()">'+(S.remind.on?tr("on"):tr("off"))+'</button></div>'
  +'<label style="margin-top:8px">'+tr("time")+'</label><input type="time" value="'+S.remind.time+'" onchange="S.remind.time=this.value;save();toast(tr(\'tset\'))"><p class="mute" style="margin-top:8px">'+tr("demo")+'</p></div>'
  +'<div class="card" style="padding:2px 14px"><div class="li" onclick="shareApp()"><span>📤</span>'+tr("shA")+'</div><div class="li" onclick="soon()"><span>⬆️</span>'+tr("upA")+'</div><div class="li" onclick="soon()" style="border:0"><span>⭐</span>'+tr("raA")+'</div></div><p class="mute" style="text-align:center">V1.0 (demo)</p>'}
@@ -231,6 +233,7 @@ function shareApp(){var u=location.href,x=tr("shMsg");try{if(navigator.share){na
 function soon(){toast(tr("soon"))}
 function setLg(k){S.lang=k;save();render()}
 function setTh(k){S.theme=k;theme();save();vSettings()}
+function setFs(k){S.fs=k;theme();save();vSettings()}
 function togR(){S.remind.on=!S.remind.on;save();if(S.remind.on){try{Notification.requestPermission()}catch(e){}}vSettings()}
 setInterval(function(){if(!S.remind.on)return;var d=new Date(),hm=pad(d.getHours())+":"+pad(d.getMinutes()),k=today()+hm;
  if(hm==S.remind.time&&fired!=k){fired=k;try{if(Notification.permission=="granted")new Notification("Diamond Karigar",{body:tr("remNow")});else toast(tr("remNow"))}catch(e){toast(tr("remNow"))}}},20000);
