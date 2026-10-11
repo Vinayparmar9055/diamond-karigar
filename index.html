@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1c52e6">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>Diamond Karigar</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bad:#c0392b;--rad:18px;--sh:none}
+[data-design="1"][data-mode="light"]{--bg:#f4f8ff;--card:#fff;--ink:#0f1f45;--mute:#62708f;--line:#dce6fb;--pri:#1747c9;--hd:linear-gradient(135deg,#0a2a8f 0%,#1c52e6 55%,#3a86ff 100%);--hdink:#fff;--acc:#5ac8ff;--ok:#1f8a4c;--btn:linear-gradient(135deg,#1747c9,#2f6bff);--btnink:#fff;--navbg:#fff;--ni:#7a88a6;--no:#1747c9;--tint:#e6eeff;--g1:#fff;--g2:#d6e6ff;--g3:#8ab4ff;--sh:0 4px 16px #1c52e61a}
+[data-design="1"][data-mode="dark"]{--bg:#091024;--card:#111b3a;--ink:#e8eeff;--mute:#93a3cc;--line:#22346b;--pri:#7aa7ff;--hd:linear-gradient(135deg,#071a5c,#123aa8 60%,#2563eb);--hdink:#fff;--acc:#5ac8ff;--ok:#4cc882;--btn:linear-gradient(135deg,#2f6bff,#4d8aff);--btnink:#fff;--navbg:#111b3a;--ni:#8fa0c8;--no:#7aa7ff;--tint:#1d2d63;--g1:#fff;--g2:#d6e6ff;--g3:#8ab4ff;}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Devanagari","Noto Sans Gujarati",sans-serif;padding-bottom:100px}
+header{position:relative;background:var(--hd);color:var(--hdink);padding:16px 14px 40px;display:flex;align-items:center;gap:10px;overflow:hidden}
+header::before{content:"";position:absolute;right:-30px;top:-50px;width:190px;height:190px;border-radius:50%;background:radial-gradient(#ffffff40,transparent 65%)}
+header>*:not(.wave){position:relative;z-index:1}
+header .gem{width:46px;height:42px;flex:none}
+.gem .a{fill:var(--g1)}.gem .b{fill:var(--g2)}.gem .c{fill:var(--g3)}
+header .tt{flex:1;min-width:0}
+header .tt b{display:block;font-size:22px;line-height:1.15}
+#ttl{display:block;font-size:16px;font-weight:600;opacity:.95}
+#ttl::after{content:"";display:block;width:54px;height:2px;border-radius:2px;background:currentColor;opacity:.55;margin-top:4px}
+header .ib{width:40px;height:40px;border-radius:50%;border:2px solid currentColor;background:#ffffff1f;color:inherit;display:flex;align-items:center;justify-content:center;flex:none;padding:0}
+header .ib svg{width:20px;height:20px}
+.wave{position:absolute;left:0;bottom:-1px;width:100%;height:30px}.wave path{fill:var(--bg)}
+.li{display:flex;gap:12px;align-items:center;padding:13px 4px;border-bottom:1px solid var(--line);font-size:16px}
+main{padding:14px;max-width:560px;margin:auto}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--rad);box-shadow:var(--sh);padding:12px;margin-bottom:12px}
+label{font-size:13px;color:var(--mute);display:block;margin-bottom:4px}
+input,textarea{width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit}
+.row{display:grid;grid-template-columns:minmax(80px,1.3fr) 1fr 1fr 78px;gap:6px;align-items:center;margin-bottom:8px}
+.row b{font-size:14px;overflow-wrap:anywhere}
+.row .t{text-align:right;font-size:14px;font-variant-numeric:tabular-nums}
+.head{font-size:12px;color:var(--mute)}
+.btn{width:100%;padding:13px;border:0;border-radius:14px;background:var(--btn);color:var(--btnink);font-size:17px;font-weight:700}
+.btn.sm{width:auto;padding:8px 12px;font-size:14px}
+.btn.ghost{background:transparent;color:var(--bad);border:1px solid var(--bad)}
+.btn.ed{background:transparent;color:var(--pri);border:1px solid var(--pri)}
+.btn.off{background:var(--bg);color:var(--ink);border:1px solid var(--line)}
+.two{background:var(--card);border:1px solid var(--line);border-radius:var(--rad);padding:12px;margin:4px 0 12px}
+.two .hd,.two .vl{display:flex;justify-content:space-between}
+.two .hd{font-size:13px;color:var(--mute);font-weight:700}
+.two .vl{font-size:22px;font-weight:700}
+.tots{background:var(--card);border:1px solid var(--line);border-radius:var(--rad);padding:12px;margin:0 0 12px}
+.tots div{display:flex;justify-content:space-between;font-size:18px;font-weight:700}
+.tots div+div{margin-top:4px}
+.tots .g{color:var(--ok)}.tots .r{color:var(--bad)}
+nav{position:fixed;bottom:0;left:0;right:0;display:flex;background:var(--navbg);border-radius:24px 24px 0 0;box-shadow:0 -4px 18px #1b2a6a1f;padding:4px 6px calc(4px + env(safe-area-inset-bottom,0px))}
+nav button{flex:1;padding:6px 1px 7px;border:0;background:none;color:var(--ni);font:inherit;font-size:11px;border-radius:16px}
+nav button i{display:block;font-style:normal;font-size:19px;line-height:1.3}
+nav button.on{color:var(--no);font-weight:700;background:var(--tint)}
+.bar{height:8px;background:var(--line);border-radius:6px;overflow:hidden;margin:4px 0 10px}
+.bar i{display:block;height:100%;background:var(--pri)}
+.flex{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.mute{color:var(--mute);font-size:13px}
+.mo{display:flex;align-items:center;justify-content:space-between;font-weight:700;gap:4px}
+.mo button{border:0;background:var(--btn);color:var(--btnink);font-size:22px;width:36px;height:36px;border-radius:50%;padding:0;line-height:1;flex:none}
+.who{font-size:18px;font-weight:700;text-align:center;margin:0 0 10px}
+.who small{display:block;font-size:14px;font-weight:400;color:var(--mute)}
+.po{display:none}
+.seg{display:flex;gap:6px;margin-bottom:12px}.seg .btn{padding:9px;font-size:15px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}
+.stat b{display:block;font-size:20px}.stat span{font-size:12px;color:var(--mute)}
+.chart{display:flex;align-items:flex-end;gap:4px;height:190px;padding-top:6px}
+.col{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;font-size:10px;color:var(--mute)}
+.col i{display:block;width:100%;background:var(--pri);border-radius:4px 4px 0 0;min-height:2px}
+.col.cur i{background:var(--acc)}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:20px;font-size:14px;z-index:30}
+@media print{header,nav,.noprint{display:none!important}.po{display:block}body{background:#fff;color:#000;padding:0}.card,.tots,.two,.stat{border-color:#999}}
+</style>
+</head>
+<body>
+<header><svg class="gem" viewBox="0 0 64 56"><polygon class="a" points="16,2 48,2 62,20 2,20"/><polygon class="b" points="2,20 62,20 32,54"/><polygon class="c" points="2,20 24,20 32,54"/><polygon class="c" points="40,20 62,20 32,54" opacity=".55"/><polygon class="b" points="16,2 24,20 32,2 40,20 48,2" opacity=".55"/></svg><div class="tt"><b>Diamond Karigar</b><span id="ttl"></span></div><button class="ib" onclick="shareApp()" aria-label="share"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 5l7 6-7 6v-4c-6 0-9 2-11 6 1-7 4-10 11-10z"/></svg></button><svg class="wave" viewBox="0 0 400 30" preserveAspectRatio="none"><path d="M0 14 C80 34 170 -2 260 10 S360 26 400 4 L400 30 L0 30Z"/></svg></header>
+<main id="app"></main>
+<nav id="nav"></nav>
+<script>
+var L={
+en:{srch:"Search date, type or amount",shA:"Share App",upA:"Update App",raA:"Rate App",shMsg:"Keep your diamond records with Diamond Karigar",copied:"Link copied",soon:"Works after the app is on Play Store",n1:"Add Diamond",n2:"Records",n3:"Upad",n4:"Summary",n5:"Settings",date:"Date",type:"Type",dia:"Diamond",rate:"Rate",tot:"Total",rup:"Rupees",tR:"Total ₹",save:"Save",upd:"Update",cancel:"Cancel",edit:"Edit",del:"Delete",norec:"No records this month.",newU:"New upad (advance)",editU:"Edit upad",amt:"Amount ₹",note:"Note (optional)",nou:"No upad this month.",tU:"Upad",mon:"Month",yr:"Year (12 months)",dw:"Days worked",lv:"Leave days",dm:"Diamonds made",ke:"Total earning",avg:"Daily average",bt:"By type",nod:"No data this month.",pdf:"Download PDF / Print",bal:"Balance ₹",lang:"Language",prof:"Your details",nm:"Name",firm:"Karkhana / Office name",rset:"Set rates",rhint:"Set the rate once, it fills in automatically.",th:"Theme",auto:"Auto",light:"Light",dark:"Dark",rem:"Reminder",remh:"Reminds you daily to add diamonds.",on:"ON",off:"OFF",time:"Time",demo:"In this demo it works only while the app is open. In the real APK it works in background too.",types:"Diamond types",thint:"Rename, add or delete types.",add:"Add",newT:"New type",cdE:"Delete this entry?",cdU:"Delete this upad?",cdT:"Delete this type? Old records stay safe.",yes:"Yes",no:"No",ok1:"Saved",ok2:"Updated",need:"Fill at least one type",amtN:"Enter amount",tset:"Time set",rtoast:"Rate set",yrT:"Year",pdfErr:"Print did not open. Use browser menu > Print",remNow:"Time to add today's diamonds",exists:"Already exists",editing:"Editing entry.",avgT:"Daily average"},
+hi:{srch:"तारीख, प्रकार या रकम खोजो",shA:"ऐप शेयर करो",upA:"ऐप अपडेट",raA:"ऐप को रेट करो",shMsg:"डायमंड कारीगर से अपना हीरे का हिसाब रखो",copied:"लिंक कॉपी हो गई",soon:"ऐप Play Store पर आने के बाद चलेगा",n1:"हीरा लिखो",n2:"रिकॉर्ड",n3:"उपाड़",n4:"सारांश",n5:"सेटिंग्स",date:"तारीख",type:"प्रकार",dia:"हीरा",rate:"भाव",tot:"टोटल",rup:"रुपये",tR:"कुल ₹",save:"सेव",upd:"अपडेट",cancel:"रद्द",edit:"एडिट",del:"डिलीट",norec:"इस महीने कोई रिकॉर्ड नहीं।",newU:"नया उपाड़ (एडवांस)",editU:"उपाड़ एडिट करो",amt:"रकम ₹",note:"नोट (चाहो तो)",nou:"इस महीने कोई उपाड़ नहीं।",tU:"उपाड़",mon:"महीना",yr:"साल (12 महीने)",dw:"काम के दिन",lv:"छुट्टी",dm:"हीरा बनाए",ke:"कुल कमाई",avg:"रोज़ का औसत",bt:"प्रकार के हिसाब से",nod:"इस महीने का डेटा नहीं है।",pdf:"PDF डाउनलोड / प्रिंट",bal:"बाकी ₹",lang:"भाषा",prof:"आपकी जानकारी",nm:"नाम",firm:"कारखाना / ऑफिस का नाम",rset:"भाव सेट करो",rhint:"एक बार भाव लिखो, अपने आप आ जाएगा।",th:"थीम",auto:"ऑटो",light:"लाइट",dark:"डार्क",rem:"रिमाइंडर",remh:"रोज़ हीरा लिखना याद दिलाएगा।",on:"ON",off:"OFF",time:"समय",demo:"डेमो में यह तभी चलेगा जब ऐप खुली हो। असली APK में बंद होने पर भी चलेगा।",types:"हीरे के प्रकार",thint:"प्रकार का नाम बदलो, जोड़ो या हटाओ।",add:"जोड़ो",newT:"नया प्रकार",cdE:"यह एंट्री डिलीट करनी है?",cdU:"यह उपाड़ डिलीट करना है?",cdT:"यह प्रकार हटाना है? पुराने रिकॉर्ड सुरक्षित रहेंगे।",yes:"हाँ",no:"नहीं",ok1:"सेव हो गया",ok2:"अपडेट हो गया",need:"कम से कम एक प्रकार भरो",amtN:"रकम लिखो",tset:"समय सेट हो गया",rtoast:"भाव सेट हो गया",yrT:"साल",pdfErr:"प्रिंट नहीं खुला। ब्राउज़र मेन्यू से Print चुनो।",remNow:"आज का हीरा लिखने का समय हो गया",exists:"यह पहले से है",editing:"एंट्री एडिट हो रही है।"},
+gu:{srch:"તારીખ, પ્રકાર કે રકમ શોધો",shA:"એપ શેર કરો",upA:"એપ અપડેટ",raA:"એપને રેટ કરો",shMsg:"ડાયમંડ કારીગરથી તમારો હીરાનો હિસાબ રાખો",copied:"લિંક કોપી થઈ ગઈ",soon:"એપ Play Store પર આવ્યા પછી ચાલશે",n1:"હીરા લખો",n2:"રેકોર્ડ",n3:"ઉપાડ",n4:"સારાંશ",n5:"સેટિંગ્સ",date:"તારીખ",type:"પ્રકાર",dia:"હીરા",rate:"ભાવ",tot:"ટોટલ",rup:"રૂપિયા",tR:"કુલ ₹",save:"સેવ",upd:"અપડેટ",cancel:"રદ",edit:"એડિટ",del:"ડિલીટ",norec:"આ મહિને કોઈ રેકોર્ડ નથી.",newU:"નવો ઉપાડ (એડવાન્સ)",editU:"ઉપાડ એડિટ કરો",amt:"રકમ ₹",note:"નોંધ (વૈકલ્પિક)",nou:"આ મહિને કોઈ ઉપાડ નથી.",tU:"ઉપાડ",mon:"મહિનો",yr:"વર્ષ (12 મહિના)",dw:"કામના દિવસ",lv:"રજા",dm:"હીરા બનાવ્યા",ke:"કુલ કમાણી",avg:"રોજની સરેરાશ",bt:"પ્રકાર પ્રમાણે",nod:"આ મહિનાનો ડેટા નથી.",pdf:"PDF ડાઉનલોડ / પ્રિન્ટ",bal:"બાકી ₹",lang:"ભાષા",prof:"તમારી માહિતી",nm:"નામ",firm:"કારખાના / ઓફિસનું નામ",rset:"ભાવ સેટ કરો",rhint:"એક વાર ભાવ લખો, આપોઆપ આવી જશે.",th:"થીમ",auto:"ઓટો",light:"લાઇટ",dark:"ડાર્ક",rem:"રિમાઇન્ડર",remh:"રોજ હીરા લખવાનું યાદ અપાવશે.",on:"ON",off:"OFF",time:"સમય",demo:"ડેમોમાં આ ત્યારે જ ચાલશે જ્યારે એપ ખુલ્લી હોય. અસલી APKમાં બંધ હોય ત્યારે પણ ચાલશે.",types:"હીરાના પ્રકાર",thint:"પ્રકારનું નામ બદલો, ઉમેરો કે કાઢો.",add:"ઉમેરો",newT:"નવો પ્રકાર",cdE:"આ એન્ટ્રી ડિલીટ કરવી છે?",cdU:"આ ઉપાડ ડિલીટ કરવો છે?",cdT:"આ પ્રકાર કાઢવો છે? જૂના રેકોર્ડ સલામત રહેશે.",yes:"હા",no:"ના",ok1:"સેવ થઈ ગયું",ok2:"અપડેટ થઈ ગયું",need:"ઓછામાં ઓછો એક પ્રકાર ભરો",amtN:"રકમ લખો",tset:"સમય સેટ થઈ ગયો",rtoast:"ભાવ સેટ થઈ ગયો",yrT:"વર્ષ",pdfErr:"પ્રિન્ટ ખુલ્યું નહીં. બ્રાઉઝર મેનુમાંથી Print પસંદ કરો.",remNow:"આજના હીરા લખવાનો સમય થઈ ગયો",exists:"આ પહેલેથી છે",editing:"એન્ટ્રી એડિટ થઈ રહી છે."}};
+var MNS={en:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],hi:["जनवरी","फरवरी","मार्च","अप्रैल","मई","जून","जुलाई","अगस्त","सितंबर","अक्टूबर","नवंबर","दिसंबर"],gu:["જાન્યુઆરી","ફેબ્રુઆરી","માર્ચ","એપ્રિલ","મે","જૂન","જુલાઈ","ઓગસ્ટ","સપ્ટેમ્બર","ઓક્ટોબર","નવેમ્બર","ડિસેમ્બર"]};
+var KEY="hirabook_v1",S,tab="entry",draft={},ud={},sv="m",yk="r",cb,fired="",q="";
+function tr(k){return (L[S.lang]&&L[S.lang][k])||L.en[k]||k}
+function MN(){return MNS[S.lang]||MNS.en}
+function norm(){S.rates=S.rates||{};S.name=S.name||"";S.firm=S.firm||"";S.types=S.types||[];S.entries=S.entries||[];S.upad=S.upad||[];S.lang=S.lang||"hi";S.design=S.design||"1";
+ S.theme=S.theme||"auto";S.remind=S.remind||{on:false,time:"20:00"};
+ if(S.types.join("|")=="A|B|C|D|E|F|G"&&!S.entries.some(function(e){return e.rows.some(function(r){return r.type=="F"||r.type=="G"})})){S.types=S.types.slice(0,5);delete S.rates.F;delete S.rates.G}
+ S.entries.forEach(function(e){if(e.hira===undefined)e.hira=e.rows.reduce(function(a,r){return a+r.c},0)})}
+function load(){try{S=JSON.parse(localStorage.getItem(KEY))}catch(e){}
+ if(!S)S={types:["A","B","C","D","E"],entries:[]};norm()}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+load();
+var $=function(i){return document.getElementById(i)};
+var pad=function(n){return String(n).padStart(2,"0")};
+var ymd=function(d){return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate())};
+var today=function(){return ymd(new Date())};
+var mo=today().slice(0,7);
+var money=function(n){return (+n||0).toLocaleString("en-IN",{maximumFractionDigits:2,minimumFractionDigits:2})};
+var num=function(n){return (+n||0).toLocaleString("en-IN",{maximumFractionDigits:2})};
+var short=function(n){return n>=1e5?(n/1e5).toFixed(1)+"L":n>=1000?(n/1000).toFixed(1)+"k":String(Math.round(n))};
+var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})};
+var dmy=function(d){return d.split("-").reverse().join("/")};
+function toast(m){var t=document.createElement("div");t.className="toast";t.textContent=m;document.body.appendChild(t);setTimeout(function(){t.remove()},2200)}
+function ask(m,f){cb=f;var o=document.createElement("div");o.id="ov";o.style.cssText="position:fixed;inset:0;background:#0008;z-index:20;display:flex;align-items:center;justify-content:center;padding:20px";
+ o.innerHTML='<div class="card" style="max-width:320px;width:100%;margin:0"><p style="margin-top:0">'+esc(m)+'</p><div class="flex"><button class="btn off" onclick="$(\'ov\').remove()">'+tr("no")+'</button><button class="btn" onclick="$(\'ov\').remove();cb()">'+tr("yes")+'</button></div></div>';document.body.appendChild(o)}
+function theme(){var r=document.documentElement,m=S.theme=="auto"?(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"):S.theme;r.setAttribute("data-mode",m);r.setAttribute("data-design","1")}
+theme();try{matchMedia("(prefers-color-scheme:dark)").addEventListener("change",theme)}catch(e){}
+var TABS=["entry","records","upad","summary","settings"];
+var IC=["💎","📒","💸","📊","⚙️"];
+function nav(){$("nav").innerHTML=TABS.map(function(t,i){return '<button class="'+(t==tab?"on":"")+'" onclick="go(\''+t+'\')"><i>'+IC[i]+'</i>'+tr("n"+(i+1))+'</button>'}).join("");$("ttl").textContent=tr("n"+(TABS.indexOf(tab)+1))}
+function go(t){tab=t;render()}
+function render(){document.documentElement.lang=S.lang;nav();({entry:vEntry,records:vRecords,upad:vUpad,summary:vSummary,settings:vSettings})[tab]();scrollTo(0,0)}
+function who(){return (S.firm||S.name)?'<p class="who">'+(S.firm?esc(S.firm):"")+(S.name?'<small>'+esc(S.name)+'</small>':"")+'</p>':""}
+function mlabel(){var p=mo.split("-");return MN()[+p[1]-1]+" "+p[0]}
+function monthBar(){return '<div class="card mo noprint"><button onclick="mv(-1)">&#8249;</button><span>'+mlabel()+'</span><button onclick="mv(1)">&#8250;</button></div>'}
+function mv(d){var p=mo.split("-"),x=new Date(+p[0],+p[1]-1+d,1);mo=x.getFullYear()+"-"+pad(x.getMonth()+1);render()}
+function monthList(){return S.entries.filter(function(e){return e.date.slice(0,7)==mo}).sort(function(a,b){return a.date<b.date?1:-1})}
+function mUpad(){return S.upad.filter(function(u){return u.date.slice(0,7)==mo}).sort(function(a,b){return a.date<b.date?1:-1})}
+function totals(list){var h=0,r=0,bt={},days={};list.forEach(function(e){h+=e.hira;r+=e.total;days[e.date]=1;e.rows.forEach(function(x){var o=bt[x.type]||(bt[x.type]={c:0,t:0});o.c+=x.c;o.t+=x.t})});
+ var u=mUpad().reduce(function(a,x){return a+x.amt},0);
+ var p=mo.split("-"),dim=new Date(+p[0],+p[1],0).getDate(),t=today(),el=mo<t.slice(0,7)?dim:mo==t.slice(0,7)?+t.slice(8):0,w=Object.keys(days).length;
+ return{h:h,r:r,bt:bt,u:u,bal:r-u,w:w,leave:Math.max(0,el-w)}}
+function blk(h,r,ids){return '<div class="two"><div class="hd"><span>'+tr("dia")+'</span><span>'+tr("rup")+'</span></div><div class="vl"><span'+(ids?' id="gh"':"")+'>'+num(h)+'</span><span'+(ids?' id="gt"':"")+'>'+money(r)+'</span></div></div>'}
+function tots4(T){return blk(T.h,T.r)+'<div class="tots"><div class="r"><span>'+tr("tU")+'</span><span>- '+money(T.u)+'</span></div><div class="g"><span>'+tr("bal")+'</span><span>'+money(T.bal)+'</span></div></div>'}
+
+/* ENTRY */
+function vEntry(){
+ if(!draft.date)draft={date:today(),rows:{}};
+ var ed=draft.id;
+ var h='<div class="card mo"><button onclick="dd(-1)">&#8249;</button><input type="date" id="dt" style="flex:1;text-align:center" value="'+draft.date+'" onchange="draft.date=this.value"><button onclick="dd(1)">&#8250;</button></div>'
+ +(ed?'<p class="mute">'+tr("editing")+' <a href="#" onclick="draft={};render();return false" style="color:var(--pri)">'+tr("cancel")+'</a></p>':"")
+ +'<div class="card"><div class="row head"><span>'+tr("type")+'</span><span>'+tr("dia")+'</span><span>'+tr("rate")+'</span><span class="t">'+tr("tot")+'</span></div>';
+ S.types.forEach(function(t,i){var r=draft.rows[i]||{};var b=r.b!==undefined?r.b:(S.rates[t]||"");
+  h+='<div class="row"><b>'+esc(t)+'</b><input inputmode="decimal" id="c'+i+'" value="'+(r.c||"")+'" oninput="calc()"><input inputmode="decimal" id="b'+i+'" value="'+b+'" oninput="calc()"><span class="t" id="t'+i+'">0.00</span></div>'});
+ h+='</div>'+blk(0,0,1)+'<button class="btn" onclick="saveEntry()">'+(ed?tr("upd"):tr("save"))+'</button>';
+ $("app").innerHTML=h;calc()}
+function dd(n){var p=draft.date.split("-"),d=new Date(+p[0],+p[1]-1,+p[2]+n);draft.date=ymd(d);$("dt").value=draft.date}
+function calc(){var g=0,gh=0;S.types.forEach(function(t,i){var c=parseFloat($("c"+i).value)||0,b=parseFloat($("b"+i).value)||0;draft.rows[i]={c:$("c"+i).value,b:$("b"+i).value};g+=c*b;gh+=c;$("t"+i).textContent=money(c*b)});$("gt").textContent=money(g);$("gh").textContent=num(gh)}
+function saveEntry(){
+ var rows=[],g=0,gh=0;
+ S.types.forEach(function(t,i){var c=parseFloat($("c"+i).value)||0,b=parseFloat($("b"+i).value)||0;if(c||b){rows.push({type:t,c:c,b:b,t:c*b});g+=c*b;gh+=c}});
+ if(!rows.length){toast(tr("need"));return}
+ var e={id:draft.id||Date.now(),date:draft.date,rows:rows,hira:gh,total:g};
+ if(draft.id){S.entries=S.entries.map(function(x){return x.id==draft.id?e:x})}else S.entries.push(e);
+ mo=e.date.slice(0,7);save();var was=!!draft.id;draft={};toast(was?tr("ok2"):tr("ok1"));render()}
+
+/* RECORDS */
+function vRecords(){
+ var all=monthList(),T=totals(all),qq=q.toLowerCase().trim(),list=all.filter(function(e){return !qq||(dmy(e.date)+" "+e.rows.map(function(r){return r.type}).join(" ")+" "+e.total+" "+e.hira).toLowerCase().indexOf(qq)>=0});
+ var h=monthBar();
+ if(!list.length)h+='<p class="mute">'+tr("norec")+'</p>';
+ list.forEach(function(e){h+='<div class="card"><div class="flex"><b>'+dmy(e.date)+'</b><span>'+tr("dia")+' '+num(e.hira)+' | &#8377; '+money(e.total)+'</span></div>'
+  +'<div class="mute" style="margin:6px 0">'+e.rows.map(function(r){return esc(r.type)+': '+num(r.c)+' x '+num(r.b)}).join(" &nbsp;|&nbsp; ")+'</div>'
+  +'<div class="flex" style="justify-content:flex-end"><button class="btn sm ed" onclick="edit('+e.id+')">'+tr("edit")+'</button><button class="btn sm ghost" onclick="del('+e.id+')">'+tr("del")+'</button></div></div>'});
+ if(list.length||T.u)h+=tots4(T);
+ $("app").innerHTML=h}
+function del(id){ask(tr("cdE"),function(){S.entries=S.entries.filter(function(e){return e.id!=id});save();vRecords()})}
+function edit(id){var e=S.entries.filter(function(x){return x.id==id})[0];if(!e)return;var rows={};
+ e.rows.forEach(function(r){var i=S.types.indexOf(r.type);if(i>=0)rows[i]={c:String(r.c),b:String(r.b)}});
+ draft={id:e.id,date:e.date,rows:rows};tab="entry";render()}
+
+/* UPAD */
+function vUpad(){
+ if(!ud.date)ud={date:today()};
+ var list=mUpad(),tot=list.reduce(function(a,x){return a+x.amt},0);
+ var h=monthBar()+'<div class="card"><b>'+(ud.id?tr("editU"):tr("newU"))+'</b>'
+ +'<label style="margin-top:8px">'+tr("date")+'</label><input type="date" value="'+ud.date+'" onchange="ud.date=this.value">'
+ +'<label style="margin-top:8px">'+tr("amt")+'</label><input inputmode="decimal" id="ua" value="'+(ud.amt||"")+'">'
+ +'<label style="margin-top:8px">'+tr("note")+'</label><input id="un" value="'+esc(ud.note||"")+'">'
+ +'<div class="flex" style="margin-top:10px"><button class="btn" onclick="saveU()">'+(ud.id?tr("upd"):tr("save"))+'</button>'+(ud.id?'<button class="btn sm off" onclick="ud={};vUpad()">'+tr("cancel")+'</button>':"")+'</div></div>';
+ if(!list.length)h+='<p class="mute">'+tr("nou")+'</p>';
+ list.forEach(function(u){h+='<div class="card"><div class="flex"><b>'+dmy(u.date)+'</b><b>&#8377; '+money(u.amt)+'</b></div>'+(u.note?'<div class="mute">'+esc(u.note)+'</div>':"")
+  +'<div class="flex" style="justify-content:flex-end;margin-top:6px"><button class="btn sm ed" onclick="editU('+u.id+')">'+tr("edit")+'</button><button class="btn sm ghost" onclick="delU('+u.id+')">'+tr("del")+'</button></div></div>'});
+ if(list.length)h+='<div class="tots"><div class="r"><span>'+tr("tU")+'</span><span>&#8377; '+money(tot)+'</span></div></div>';
+ $("app").innerHTML=h}
+function saveU(){var a=parseFloat($("ua").value)||0;if(a<=0){toast(tr("amtN"));return}
+ var u={id:ud.id||Date.now(),date:ud.date,amt:a,note:$("un").value.trim()};
+ if(ud.id)S.upad=S.upad.map(function(x){return x.id==ud.id?u:x});else S.upad.push(u);
+ mo=u.date.slice(0,7);save();ud={};toast(tr("ok1"));vUpad()}
+function editU(id){ud=Object.assign({},S.upad.filter(function(x){return x.id==id})[0]);vUpad();scrollTo(0,0)}
+function delU(id){ask(tr("cdU"),function(){S.upad=S.upad.filter(function(x){return x.id!=id});save();vUpad()})}
+
+/* SUMMARY */
+function vSummary(){
+ var h='<div class="seg noprint"><button class="btn '+(sv=="m"?"":"off")+'" onclick="sv=\'m\';vSummary()">'+tr("mon")+'</button><button class="btn '+(sv=="y"?"":"off")+'" onclick="sv=\'y\';vSummary()">'+tr("yr")+'</button></div>';
+ $("app").innerHTML=h+who()+(sv=="m"?sMonth():sYear())}
+function sMonth(){
+ var T=totals(monthList()),k=S.types.filter(function(t){return T.bt[t]}),m=Math.max.apply(null,k.map(function(t){return T.bt[t].c}).concat(1));
+ return monthBar()+'<p class="who po">'+mlabel()+'</p>'
+ +'<div class="grid2"><div class="stat"><b>'+T.w+'</b><span>'+tr("dw")+'</span></div><div class="stat"><b>'+T.leave+'</b><span>'+tr("lv")+'</span></div><div class="stat"><b>'+num(T.h)+'</b><span>'+tr("dm")+'</span></div><div class="stat"><b>&#8377; '+short(T.r)+'</b><span>'+tr("ke")+'</span></div></div>'
+ +(T.w?'<p class="mute" style="text-align:center">'+tr("avg")+': '+num(T.h/T.w)+' | &#8377; '+money(T.r/T.w)+'</p>':"")
+ +tots4(T)
+ +'<div class="card"><b>'+tr("bt")+'</b>'+(k.length?k.map(function(t){var o=T.bt[t];return '<div class="flex" style="margin-top:8px"><span>'+esc(t)+' &nbsp;<span class="mute">'+(T.h?(o.c/T.h*100).toFixed(1):0)+'%</span></span><span>'+num(o.c)+' | &#8377; '+money(o.t)+'</span></div><div class="bar"><i style="width:'+(o.c/m*100)+'%"></i></div>'}).join(""):'<p class="mute">'+tr("nod")+'</p>')+'</div>'
+ +'<button class="btn noprint" onclick="pdf()">'+tr("pdf")+'</button>'}
+function sYear(){
+ var y=mo.slice(0,4),cm=today().slice(0,7),vals=[],hs=0,rs=0,us=0,ws=0;
+ for(var i=1;i<=12;i++){var key=y+"-"+pad(i),L2=S.entries.filter(function(e){return e.date.slice(0,7)==key}),r=0,hh=0,d={};
+  L2.forEach(function(e){r+=e.total;hh+=e.hira;d[e.date]=1});vals.push({k:key,r:r,h:hh});hs+=hh;rs+=r;ws+=Object.keys(d).length;
+  us+=S.upad.filter(function(u){return u.date.slice(0,7)==key}).reduce(function(a,x){return a+x.amt},0)}
+ var m=Math.max.apply(null,vals.map(function(v){return v[yk]}).concat(1));
+ return '<div class="card mo noprint"><button onclick="yv(-1)">&#8249;</button><span>'+tr("yrT")+' '+y+'</span><button onclick="yv(1)">&#8250;</button></div><p class="who po">'+tr("yrT")+' '+y+'</p>'
+ +'<div class="seg noprint"><button class="btn sm '+(yk=="r"?"":"off")+'" style="flex:1" onclick="yk=\'r\';vSummary()">&#8377; '+tr("ke")+'</button><button class="btn sm '+(yk=="h"?"":"off")+'" style="flex:1" onclick="yk=\'h\';vSummary()">'+tr("dia")+'</button></div>'
+ +'<div class="card"><div class="chart">'+vals.map(function(v){return '<div class="col'+(v.k==cm?" cur":"")+'">'+(v[yk]?short(v[yk]):"")+'<i style="height:'+Math.round(v[yk]/m*150)+'px"></i></div>'}).join("")+'</div>'
+ +'<div class="chart" style="height:auto;padding:4px 0 0">'+vals.map(function(v,i){return '<div class="col" style="height:auto">'+(i+1)+'</div>'}).join("")+'</div></div>'
+ +blk(hs,rs)+'<div class="tots"><div class="r"><span>'+tr("tU")+'</span><span>- '+money(us)+'</span></div><div class="g"><span>'+tr("bal")+'</span><span>'+money(rs-us)+'</span></div><div><span>'+tr("dw")+'</span><span>'+ws+'</span></div></div>'
+ +'<button class="btn noprint" onclick="pdf()">'+tr("pdf")+'</button>'}
+function yv(d){mo=(+mo.slice(0,4)+d)+"-"+mo.slice(5);vSummary()}
+function pdf(){try{window.print()}catch(e){toast(tr("pdfErr"))}}
+
+/* SETTINGS */
+function vSettings(){
+ var th=function(k){return '<button class="btn sm '+(S.theme==k?"":"off")+'" style="flex:1" onclick="setTh(\''+k+'\')">'+tr(k)+'</button>'};
+ var lg=function(k,n){return '<button class="btn sm '+(S.lang==k?"":"off")+'" style="flex:1" onclick="setLg(\''+k+'\')">'+n+'</button>'};
+ $("app").innerHTML='<div class="card"><b>'+tr("prof")+'</b><label style="margin-top:8px">'+tr("nm")+'</label><input value="'+esc(S.name)+'" oninput="S.name=this.value;save()"><label style="margin-top:8px">'+tr("firm")+'</label><input value="'+esc(S.firm)+'" oninput="S.firm=this.value;save()"></div>'
+ +'<div class="card"><b>'+tr("lang")+'</b><div class="flex" style="margin-top:8px">'+lg("en","English")+lg("hi","हिन्दी")+lg("gu","ગુજરાતી")+'</div></div>'
+ +'<div class="card"><b>'+tr("rset")+'</b><p class="mute">'+tr("rhint")+'</p>'
+ +S.types.map(function(t,i){return '<div class="row" style="grid-template-columns:1.3fr 1fr"><b>'+esc(t)+'</b><input inputmode="decimal" placeholder="0.00" value="'+(S.rates[t]||"")+'" onchange="setR('+i+',this.value)"></div>'}).join("")+'</div>'
+ +'<div class="card"><b>'+tr("types")+'</b><p class="mute">'+tr("thint")+'</p>'
+ +S.types.map(function(x,i){return '<div class="flex" style="margin-bottom:8px"><input value="'+esc(x)+'" onchange="renT('+i+',this.value)"><button class="btn sm ghost" onclick="rmT('+i+')">&#10005;</button></div>'}).join("")
+ +'<div class="flex"><input id="nt" placeholder="'+tr("newT")+'"><button class="btn sm" onclick="addT()">'+tr("add")+'</button></div></div>'
+ +'<div class="card"><b>'+tr("th")+'</b><div class="flex" style="margin-top:8px">'+th("auto")+th("light")+th("dark")+'</div></div>'
+ +'<div class="card"><b>'+tr("rem")+'</b><p class="mute">'+tr("remh")+'</p><div class="flex"><span></span><button class="btn sm '+(S.remind.on?"":"off")+'" onclick="togR()">'+(S.remind.on?tr("on"):tr("off"))+'</button></div>'
+ +'<label style="margin-top:8px">'+tr("time")+'</label><input type="time" value="'+S.remind.time+'" onchange="S.remind.time=this.value;save();toast(tr(\'tset\'))"><p class="mute" style="margin-top:8px">'+tr("demo")+'</p></div>'
+ +'<div class="card" style="padding:2px 14px"><div class="li" onclick="shareApp()"><span>📤</span>'+tr("shA")+'</div><div class="li" onclick="soon()"><span>⬆️</span>'+tr("upA")+'</div><div class="li" onclick="soon()" style="border:0"><span>⭐</span>'+tr("raA")+'</div></div><p class="mute" style="text-align:center">V1.0 (demo)</p>'}
+function shareApp(){var u=location.href,x=tr("shMsg");try{if(navigator.share){navigator.share({title:"Diamond Karigar",text:x,url:u});return}}catch(e){}try{navigator.clipboard.writeText(x+" "+u).then(function(){toast(tr("copied"))},function(){toast(u)})}catch(e){toast(u)}}
+function soon(){toast(tr("soon"))}
+function setLg(k){S.lang=k;save();render()}
+function setTh(k){S.theme=k;theme();save();vSettings()}
+function togR(){S.remind.on=!S.remind.on;save();if(S.remind.on){try{Notification.requestPermission()}catch(e){}}vSettings()}
+setInterval(function(){if(!S.remind.on)return;var d=new Date(),hm=pad(d.getHours())+":"+pad(d.getMinutes()),k=today()+hm;
+ if(hm==S.remind.time&&fired!=k){fired=k;try{if(Notification.permission=="granted")new Notification("Diamond Karigar",{body:tr("remNow")});else toast(tr("remNow"))}catch(e){toast(tr("remNow"))}}},20000);
+function setR(i,v){var t=S.types[i];if(v==="")delete S.rates[t];else S.rates[t]=v;draft={};save();toast(tr("rtoast"))}
+function addT(){var v=$("nt").value.trim();if(v&&S.types.indexOf(v)<0){S.types.push(v);draft={};save();vSettings()}}
+function rmT(i){ask(tr("cdT"),function(){S.types.splice(i,1);draft={};save();vSettings()})}
+function renT(i,v){v=v.trim();var o=S.types[i];if(!v||v==o){vSettings();return}
+ if(S.types.indexOf(v)>=0){toast(tr("exists"));vSettings();return}
+ S.types[i]=v;if(S.rates[o]!==undefined){S.rates[v]=S.rates[o];delete S.rates[o]}
+ S.entries.forEach(function(e){e.rows.forEach(function(r){if(r.type==o)r.type=v})});draft={};save();vSettings()}
+render();
+</script>
+<script>if("serviceWorker" in navigator){addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}</script>
+</body>
+</html>
