@@ -154,11 +154,11 @@ function saveEntry(){
 /* RECORDS */
 function vRecords(){
  var all=monthList(),T=totals(all),qq=q.toLowerCase().trim(),list=all.filter(function(e){return !qq||(dmy(e.date)+" "+e.rows.map(function(r){return r.type}).join(" ")+" "+e.total+" "+e.hira).toLowerCase().indexOf(qq)>=0});
- var h=monthBar();
+ var h=who()+monthBar()+'<p class="who po">'+mlabel()+'</p>';
  if(!list.length)h+='<p class="mute">'+tr("norec")+'</p>';
  list.forEach(function(e){h+='<div class="card"><div class="flex"><b>'+dmy(e.date)+'</b><span>'+tr("dia")+' '+num(e.hira)+' | &#8377; '+money(e.total)+'</span></div>'
   +'<div class="mute" style="margin:6px 0">'+e.rows.map(function(r){return esc(r.type)+' '+num(r.c)}).join(" &nbsp;|&nbsp; ")+'</div>'
-  +'<div class="flex" style="justify-content:flex-end"><button class="btn sm ed" onclick="edit('+e.id+')">'+tr("edit")+'</button><button class="btn sm ghost" onclick="del('+e.id+')">'+tr("del")+'</button></div></div>'});
+  +'<div class="flex noprint" style="justify-content:flex-end"><button class="btn sm ed" onclick="edit('+e.id+')">'+tr("edit")+'</button><button class="btn sm ghost" onclick="del('+e.id+')">'+tr("del")+'</button></div></div>'});
  if(list.length||T.u)h+=tots4(T);
  $("app").innerHTML=h}
 function del(id){ask(tr("cdE"),function(){S.entries=S.entries.filter(function(e){return e.id!=id});S.del.push(id);save();vRecords()})}
