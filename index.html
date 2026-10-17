@@ -146,7 +146,7 @@ function calc(){var g=0,gh=0;S.types.forEach(function(t,i){var c=parseFloat($("c
 function saveEntry(){
  var rows=[],g=0,gh=0;
  S.types.forEach(function(t,i){var c=parseFloat($("c"+i).value)||0,b=parseFloat($("b"+i).value)||0;if(c||b){rows.push({type:t,c:c,b:b,t:c*b});g+=c*b;gh+=c}});
- if(!rows.length){toast(tr("need"));return}
+ if(!rows.length||gh<=0){toast(tr("need"));return}
  var e={id:draft.id||Date.now(),date:draft.date,rows:rows,hira:gh,total:g,ts:Date.now()};
  if(draft.id){S.entries=S.entries.map(function(x){return x.id==draft.id?e:x})}else S.entries.push(e);
  mo=e.date.slice(0,7);save();var was=!!draft.id;draft={};toast(was?tr("ok2"):tr("ok1"));render()}
