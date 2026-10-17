@@ -157,7 +157,7 @@ function vRecords(){
  var h=monthBar();
  if(!list.length)h+='<p class="mute">'+tr("norec")+'</p>';
  list.forEach(function(e){h+='<div class="card"><div class="flex"><b>'+dmy(e.date)+'</b><span>'+tr("dia")+' '+num(e.hira)+' | &#8377; '+money(e.total)+'</span></div>'
-  +'<div class="mute" style="margin:6px 0">'+e.rows.map(function(r){return esc(r.type)+' '+num(r.c)})'+num(r.b)}).join(" &nbsp;|&nbsp; ")+'</div>'
+  +'<div class="mute" style="margin:6px 0">'+e.rows.map(function(r){return esc(r.type)+' '+num(r.c)}).join(" &nbsp;|&nbsp; ")+'</div>'
   +'<div class="flex" style="justify-content:flex-end"><button class="btn sm ed" onclick="edit('+e.id+')">'+tr("edit")+'</button><button class="btn sm ghost" onclick="del('+e.id+')">'+tr("del")+'</button></div></div>'});
  if(list.length||T.u)h+=tots4(T);
  $("app").innerHTML=h}
