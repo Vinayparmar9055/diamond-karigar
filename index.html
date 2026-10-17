@@ -230,7 +230,7 @@ function vSettings(){
  +'<div class="card"><b>'+tr("fs")+'</b><div class="flex" style="margin-top:8px">'+fz("1")+fz("2")+fz("3")+'</div></div>'
  +'<div class="card"><b>'+tr("rem")+'</b><p class="mute">'+tr("remh")+'</p><div class="flex"><span></span><button class="btn sm '+(S.remind.on?"":"off")+'" onclick="togR()">'+(S.remind.on?tr("on"):tr("off"))+'</button></div>'
  +'<label style="margin-top:8px">'+tr("time")+'</label><input type="time" value="'+S.remind.time+'" onchange="S.remind.time=this.value;save();toast(tr(\'tset\'))"><p class="mute" style="margin-top:8px">'+tr("demo")+'</p></div>'
- +'<div class="card" style="padding:2px 14px"><div class="li" onclick="shareApp()"><span>📤</span>'+tr("shA")+'</div><div class="li" onclick="soon()"><span>⬆️</span>'+tr("upA")+'</div><div class="li" onclick="soon()" style="border:0"><span>⭐</span>'+tr("raA")+'</div></div><p class="mute" style="text-align:center">V1.0 (demo)</p>'}
+ +'<div class="card" style="padding:2px 14px"><div class="li" onclick="shareApp()"><span>📤</span>'+tr("shA")+'</div><div class="li" onclick="soon()"><span>⬆️</span>'+tr("upA")+'</div><div class="li" onclick="soon()" style="border:0"><span>⭐</span>'+tr("raA")+'</div></div><p class="mute" style="text-align:center">V1.0 </p>'}
 function shareApp(){var u=location.href,x=tr("shMsg");try{if(navigator.share){navigator.share({title:"Diamond Karigar",text:x,url:u});return}}catch(e){}try{navigator.clipboard.writeText(x+" "+u).then(function(){toast(tr("copied"))},function(){toast(u)})}catch(e){toast(u)}}
 function soon(){toast(tr("soon"))}
 function setLg(k){S.lang=k;save();render()}
