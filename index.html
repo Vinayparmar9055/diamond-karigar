@@ -117,7 +117,7 @@ var IC=["💎","📒","💸","📊","⚙️"];
 function nav(){$("nav").innerHTML=TABS.map(function(t,i){return '<button class="'+(t==tab?"on":"")+'" onclick="go(\''+t+'\')"><i>'+IC[i]+'</i>'+tr("n"+(i+1))+'</button>'}).join("");$("ttl").textContent=tr("n"+(TABS.indexOf(tab)+1))}
 function go(t){tab=t;render()}
 function render(){document.documentElement.lang=S.lang;nav();({entry:vEntry,records:vRecords,upad:vUpad,summary:vSummary,settings:vSettings})[tab]();scrollTo(0,0)}
-function who(){return (S.firm||S.name)?'<p class="who">'+(S.firm?esc(S.firm):"")+(S.name?'<small>'+esc(S.name)+'</small>':"")+'</p>':""}
+function who(){return (S.firm||S.name)?'<p class="who">'+(S.name?esc(S.name):"")+(S.firm?'<small>'+esc(S.firm)+'</small>':"")+'</p>':""}
 function mlabel(){var p=mo.split("-");return MN()[+p[1]-1]+" "+p[0]}
 function monthBar(){return '<div class="card mo noprint"><button onclick="mv(-1)">&#8249;</button><span>'+mlabel()+'</span><button onclick="mv(1)">&#8250;</button></div>'}
 function mv(d){var p=mo.split("-"),x=new Date(+p[0],+p[1]-1+d,1);mo=x.getFullYear()+"-"+pad(x.getMonth()+1);render()}
