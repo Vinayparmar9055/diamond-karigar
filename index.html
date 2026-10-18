@@ -13,7 +13,7 @@
 [data-design="1"][data-mode="light"]{--bg:#f4f8ff;--card:#fff;--ink:#0f1f45;--mute:#62708f;--line:#dce6fb;--pri:#1747c9;--hd:linear-gradient(135deg,#0a2a8f 0%,#1c52e6 55%,#3a86ff 100%);--hdink:#fff;--acc:#5ac8ff;--ok:#1f8a4c;--btn:linear-gradient(135deg,#1747c9,#2f6bff);--btnink:#fff;--navbg:#fff;--ni:#7a88a6;--no:#1747c9;--tint:#e6eeff;--g1:#fff;--g2:#d6e6ff;--g3:#8ab4ff;--sh:0 4px 16px #1c52e61a}
 [data-design="1"][data-mode="dark"]{--bg:#091024;--card:#111b3a;--ink:#e8eeff;--mute:#93a3cc;--line:#22346b;--pri:#7aa7ff;--hd:linear-gradient(135deg,#071a5c,#123aa8 60%,#2563eb);--hdink:#fff;--acc:#5ac8ff;--ok:#4cc882;--btn:linear-gradient(135deg,#2f6bff,#4d8aff);--btnink:#fff;--navbg:#111b3a;--ni:#8fa0c8;--no:#7aa7ff;--tint:#1d2d63;--g1:#fff;--g2:#d6e6ff;--g3:#8ab4ff;}
 *{box-sizing:border-box}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
+html{touch-action:pan-y;scroll-padding-top:env(safe-area-inset-top,0px)}
 body{touch-action:pan-y;margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Devanagari","Noto Sans Gujarati",sans-serif;font-size:calc(16px*var(--k));line-height:1.4;padding-bottom:100px}
 header{position:relative;background:var(--hd);color:var(--hdink);padding:16px 14px 40px;display:flex;align-items:center;gap:10px;overflow:hidden}
 header::before{content:"";position:absolute;right:-30px;top:-50px;width:190px;height:190px;border-radius:50%;background:radial-gradient(#ffffff40,transparent 65%)}
@@ -247,6 +247,7 @@ function renT(i,v){v=v.trim();var o=S.types[i];if(!v||v==o){vSettings();return}
  S.types[i]=v;if(S.rates[o]!==undefined){S.rates[v]=S.rates[o];delete S.rates[o]}
  S.entries.forEach(function(e){e.rows.forEach(function(r){if(r.type==o)r.type=v})});draft={};save();vSettings()}
 try{localStorage.removeItem("hb_login")}catch(e){}
+document.addEventListener("touchmove",function(e){if(e.touches.length>1)e.preventDefault()},{passive:false});
 render();
 </script>
 <script>if("serviceWorker" in navigator){addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}</script>
