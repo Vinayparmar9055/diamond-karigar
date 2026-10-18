@@ -159,7 +159,7 @@ function vRecords(){
  list.forEach(function(e){h+='<div class="card"><div class="flex"><b>'+dmy(e.date)+'</b><span>'+tr("dia")+' '+num(e.hira)+' | &#8377; '+money(e.total)+'</span></div>'
   +'<div class="mute" style="margin:6px 0">'+e.rows.map(function(r){return esc(r.type)+' '+num(r.c)}).join(" &nbsp;|&nbsp; ")+'</div>'
   +'<div class="flex noprint" style="justify-content:flex-end"><button class="btn sm ed" onclick="edit('+e.id+')">'+tr("edit")+'</button><button class="btn sm ghost" onclick="del('+e.id+')">'+tr("del")+'</button></div></div>'});
- if(list.length||T.u)h+=tots4(T);
+ if(list.length||T.u)h+=tots4(T);if(list.length)h+='<button class="btn noprint" onclick="pdf()">'+tr("pdf")+'</button>';
  $("app").innerHTML=h}
 function del(id){ask(tr("cdE"),function(){S.entries=S.entries.filter(function(e){return e.id!=id});S.del.push(id);save();vRecords()})}
 function edit(id){var e=S.entries.filter(function(x){return x.id==id})[0];if(!e)return;var rows={};
