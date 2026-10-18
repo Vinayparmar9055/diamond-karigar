@@ -2,7 +2,7 @@
 <html lang="hi">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#1c52e6">
 <link rel="icon" href="icon-192.png">
@@ -14,7 +14,7 @@
 [data-design="1"][data-mode="dark"]{--bg:#091024;--card:#111b3a;--ink:#e8eeff;--mute:#93a3cc;--line:#22346b;--pri:#7aa7ff;--hd:linear-gradient(135deg,#071a5c,#123aa8 60%,#2563eb);--hdink:#fff;--acc:#5ac8ff;--ok:#4cc882;--btn:linear-gradient(135deg,#2f6bff,#4d8aff);--btnink:#fff;--navbg:#111b3a;--ni:#8fa0c8;--no:#7aa7ff;--tint:#1d2d63;--g1:#fff;--g2:#d6e6ff;--g3:#8ab4ff;}
 *{box-sizing:border-box}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Devanagari","Noto Sans Gujarati",sans-serif;font-size:calc(16px*var(--k));line-height:1.4;padding-bottom:100px}
+body{touch-action:pan-y;margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Devanagari","Noto Sans Gujarati",sans-serif;font-size:calc(16px*var(--k));line-height:1.4;padding-bottom:100px}
 header{position:relative;background:var(--hd);color:var(--hdink);padding:16px 14px 40px;display:flex;align-items:center;gap:10px;overflow:hidden}
 header::before{content:"";position:absolute;right:-30px;top:-50px;width:190px;height:190px;border-radius:50%;background:radial-gradient(#ffffff40,transparent 65%)}
 header>*:not(.wave){position:relative;z-index:1}
